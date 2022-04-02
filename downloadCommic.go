@@ -23,7 +23,7 @@ func init() {
 	}
 
 	chaptersSelector, err = regexp.Compile(
-		`^257$`,
+		CFG.chapterPattern,
 	)
 	if err != nil {
 		log.Fatalln(err.Error())

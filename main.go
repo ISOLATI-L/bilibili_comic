@@ -7,8 +7,6 @@ import (
 	"time"
 )
 
-const COMIC_ID int = 26009
-
 type Chapter struct {
 	Id         int    `json:"id"`
 	ShortTitle string `json:"short_title"`
@@ -16,6 +14,7 @@ type Chapter struct {
 }
 
 var client *http.Client
+var CFG config
 
 func init() {
 	var err error
@@ -30,10 +29,11 @@ func init() {
 		},
 		Jar: jar,
 	}
+	CFG = loadConfig()
 }
 
 func main() {
-	chaptersInfo, err := getChaptersInfo(COMIC_ID)
+	chaptersInfo, err := getChaptersInfo(CFG.id)
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
