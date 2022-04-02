@@ -30,6 +30,7 @@ func init() {
 		Jar: jar,
 	}
 	CFG = loadConfig()
+	initChaptersSelector()
 }
 
 func main() {

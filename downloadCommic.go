@@ -21,7 +21,10 @@ func init() {
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
+}
 
+func initChaptersSelector() {
+	var err error
 	chaptersSelector, err = regexp.Compile(
 		CFG.chapterPattern,
 	)
